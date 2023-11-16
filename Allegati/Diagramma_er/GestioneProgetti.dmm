@@ -1,0 +1,195 @@
+{
+	"tables": {
+		"5a05ae40-f241-4bdf-8f8d-457996920311": {
+			"id": "5a05ae40-f241-4bdf-8f8d-457996920311",
+			"visible": true,
+			"name": "Progetti",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "ae715d5b-2aea-4882-ab88-b962445b3805",
+					"name": "id",
+					"datatype": "INT",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "e70fbc71-e365-437f-a771-253a39f772cd",
+					"name": "titolo",
+					"datatype": "VARCHAR",
+					"param": "255",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
+				}
+			],
+			"relations": [],
+			"lines": [],
+			"keys": [
+				{
+					"id": "453bec61-9f8c-49d8-840d-fd6a51e460a1",
+					"name": "Primary key",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "2ee7f4f4-a1fb-4270-902a-1bc2c639e8d6",
+							"colid": "ae715d5b-2aea-4882-ab88-b962445b3805"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"beforeScript": "",
+			"afterScript": "",
+			"tabletype": "",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"database": "",
+			"initautoinc": false
+		}
+	},
+	"relations": {},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"name": "GestioneProgetti",
+		"id": "f818e960-294e-4eab-8036-8392d1b3e746",
+		"activeDiagram": "ff7c8aad-5884-4474-8f93-588b27252331",
+		"desc": "",
+		"path": "",
+		"type": "MYSQL",
+		"version": 1,
+		"parentTableInFkCols": true,
+		"caseConvention": "under",
+		"replaceSpace": "_",
+		"color": "transparent",
+		"sideSelections": true,
+		"isDirty": true,
+		"storedin": {
+			"major": 7,
+			"minor": 3,
+			"extra": 0
+		},
+		"laststoredin": {
+			"major": 7,
+			"minor": 3,
+			"extra": 0
+		},
+		"writeFileParam": false,
+		"authorName": "",
+		"companyDetails": "",
+		"companyUrl": "",
+		"def_tabletype": "",
+		"def_collation": "",
+		"def_charset": "",
+		"def_coltopk": true,
+		"def_rowformat": "na",
+		"def_database": "",
+		"sqlSettings": {
+			"wrapLines": true,
+			"wrapOffset": 80,
+			"indent": true,
+			"indentationString": "spaces",
+			"indentationSize": 2,
+			"limitItemsOnLine": true,
+			"maxListItemsOnLine": 3,
+			"statementDelimiter": ";",
+			"routineDelimiter": "//",
+			"keywordCase": "upper",
+			"identiferCase": "original",
+			"includeSchema": "always",
+			"quotation": "if_needed"
+		},
+		"lastSaved": "Thu Nov 16 2023 11:32:30 GMT+0100 (Ora standard dell’Europa centrale)"
+	},
+	"otherObjects": {},
+	"diagrams": {
+		"ff7c8aad-5884-4474-8f93-588b27252331": {
+			"name": "Main Diagram",
+			"description": "",
+			"id": "ff7c8aad-5884-4474-8f93-588b27252331",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 1,
+			"background": "transparent",
+			"lineColor": "transparent",
+			"isOpen": true,
+			"main": true,
+			"diagramItems": {
+				"5a05ae40-f241-4bdf-8f8d-457996920311": {
+					"referencedItemId": "5a05ae40-f241-4bdf-8f8d-457996920311",
+					"x": 247,
+					"y": 258,
+					"gHeight": 63,
+					"gWidth": 205,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10"
+				}
+			},
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd",
+			"showHorizontal": true,
+			"showDescriptions": true,
+			"showIndicators": true,
+			"showProgress": true,
+			"lineWidth": "2",
+			"boxSize": "0",
+			"showIndicatorCaptions": true,
+			"showEstimatedSize": false,
+			"showSchemaContainer": true,
+			"showEmbeddedInParents": true,
+			"showCardinalityCaptions": true,
+			"showColumns": true,
+			"showColumnDataTypes": true,
+			"showSampleData": false,
+			"showTableIndexes": true,
+			"showTableDescriptions": false,
+			"showRelations": true,
+			"backgroundImage": "na",
+			"descriptionsColor": "transparent"
+		}
+	},
+	"order": [
+		"5a05ae40-f241-4bdf-8f8d-457996920311"
+	],
+	"collapsedTreeItems": [],
+	"reverseStats": {}
+}
