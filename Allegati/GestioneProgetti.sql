@@ -1,3 +1,5 @@
+CREATE DATABASE `gestione_progetti`;
+
 CREATE TABLE `Project`(
   id INT NOT NULL,
   title VARCHAR(255),
@@ -9,7 +11,7 @@ CREATE TABLE `Project`(
 
 CREATE TABLE `ProjectState`(
   id INT NOT NULL AUTO_INCREMENT,
-  state ENUM(assigned,ongoing,testing,finished),
+  state ENUM('assigned','ongoing','testing','finished'),
   `updatedAt` DATETIME,
   `Project_id` INT NOT NULL,
   PRIMARY KEY(id)
@@ -21,7 +23,7 @@ CREATE TABLE `User`(
   surname VARCHAR(50),
   email VARCHAR(255),
   `phoneNumber` VARCHAR(22),
-  `role` ENUM(contributor,admin,superadmin),
+  `role` ENUM('contributor','admin','superadmin'),
   `password` CHAR(64),
   PRIMARY KEY(id)
 );
