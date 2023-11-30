@@ -3,7 +3,7 @@
 		"5a05ae40-f241-4bdf-8f8d-457996920311": {
 			"id": "5a05ae40-f241-4bdf-8f8d-457996920311",
 			"visible": true,
-			"name": "Progetti",
+			"name": "Project",
 			"desc": "",
 			"estimatedSize": "",
 			"cols": [
@@ -197,7 +197,7 @@
 				},
 				{
 					"id": "b72bcf7f-fb0f-4a19-9af2-72bdc2491b59",
-					"name": "assingedAt",
+					"name": "updatedAt",
 					"datatype": "DATETIME",
 					"param": "",
 					"pk": false,
@@ -218,7 +218,7 @@
 				},
 				{
 					"id": "8f47d2c6-3bc7-4438-a2a9-3d46708e4617",
-					"name": "Progetti_id",
+					"name": "Project_id",
 					"datatype": "INT",
 					"param": "",
 					"pk": false,
@@ -273,7 +273,7 @@
 		"5f0bb99c-ca86-4fff-bbe6-0ef9a7da85ee": {
 			"id": "5f0bb99c-ca86-4fff-bbe6-0ef9a7da85ee",
 			"visible": true,
-			"name": "Contributor",
+			"name": "User",
 			"desc": "",
 			"estimatedSize": "",
 			"cols": [
@@ -380,6 +380,27 @@
 					"zerofill": false,
 					"unsigned": false,
 					"enum": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "2eef0875-9635-4fb7-a7f5-7e56b253b815",
+					"name": "role",
+					"datatype": "ENUM",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "contributor,admin,superadmin",
 					"estimatedSize": ""
 				},
 				{
@@ -541,7 +562,7 @@
 			"includeSchema": "always",
 			"quotation": "if_needed"
 		},
-		"lastSaved": "23/11/2023"
+		"lastSaved": "Thu Nov 23 2023 11:08:37 GMT+0100 (Ora standard dell’Europa centrale)"
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -559,8 +580,8 @@
 			"diagramItems": {
 				"5a05ae40-f241-4bdf-8f8d-457996920311": {
 					"referencedItemId": "5a05ae40-f241-4bdf-8f8d-457996920311",
-					"x": 270,
-					"y": 286,
+					"x": 201,
+					"y": 316,
 					"gHeight": 117,
 					"gWidth": 217,
 					"color": "#ffffff",
@@ -571,10 +592,10 @@
 				},
 				"6f535a59-ddb0-4af0-a93f-acb0c1583cbe": {
 					"referencedItemId": "6f535a59-ddb0-4af0-a93f-acb0c1583cbe",
-					"x": 602,
-					"y": 286,
+					"x": 533,
+					"y": 316,
 					"gHeight": 99,
-					"gWidth": 215,
+					"gWidth": 213,
 					"color": "#ffffff",
 					"background": "#03a9f4",
 					"resized": false,
@@ -583,9 +604,9 @@
 				},
 				"5f0bb99c-ca86-4fff-bbe6-0ef9a7da85ee": {
 					"referencedItemId": "5f0bb99c-ca86-4fff-bbe6-0ef9a7da85ee",
-					"x": 271,
-					"y": 435,
-					"gHeight": 135,
+					"x": 202,
+					"y": 465,
+					"gHeight": 153,
 					"gWidth": 252,
 					"color": "#ffffff",
 					"background": "#03a9f4",

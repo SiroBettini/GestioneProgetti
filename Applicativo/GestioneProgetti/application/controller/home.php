@@ -6,8 +6,11 @@ class Home
 
     public function index()
     {
-		echo ("sono il controller home.php...ma non dovrei mostrare io questo messaggio");
-      
+        require "application/views/components/header.php";
+        //require_once 'application/views/login/index.php';
+        require "application/views/components/navbar.php";
+        require_once 'application/views/home/home.php';
+        require "application/views/components/footer.php";
     }
 
 
