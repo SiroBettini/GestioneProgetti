@@ -1,15 +1,17 @@
-CREATE DATABASE `gestione_progetti`;
+CREATE DATABASE IF NOT EXISTS `gestione_progetti`;
+USE `gestione_progetti`;
 
-CREATE TABLE `Project`(
-  id INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `Project`(
+  id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255),
-  `description` DATETIME,
+  `description` VARCHAR(255),
   `startedAt` DATETIME,
+  `archived` TINYINT(1),
   `Contributor_id` INT NOT NULL,
   PRIMARY KEY(id)
 );
 
-CREATE TABLE `ProjectState`(
+CREATE TABLE IF NOT EXISTS `ProjectState`(
   id INT NOT NULL AUTO_INCREMENT,
   state ENUM('assigned','ongoing','testing','finished'),
   `updatedAt` DATETIME,
@@ -17,7 +19,7 @@ CREATE TABLE `ProjectState`(
   PRIMARY KEY(id)
 );
 
-CREATE TABLE `User`(
+CREATE TABLE IF NOT EXISTS `User`(
   id INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50),
   surname VARCHAR(50),

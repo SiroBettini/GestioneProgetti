@@ -24,5 +24,14 @@ $final = $actual_link.str_replace($documentRoot,'',$dir);
 
 define('URL', $final);
 
+try {
+    $conn = new PDO("mysql:host=localhost;dbname=gestione_progetti", "root", "");
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    define('DBCONN',$conn);
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+
 
 
