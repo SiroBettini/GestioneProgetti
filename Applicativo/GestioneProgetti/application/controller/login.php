@@ -1,9 +1,7 @@
 <?php
 
-namespace controller;
-
 use models\userMapper;
-class login
+class Login
 {
     private $um;
     public function __construct()
@@ -21,7 +19,7 @@ class login
             if($res){
                 header("location:" . URL . "home/homePage");
             }else{
-                //header("location:" . URL . "home");
+                header("location:" . URL . "home");
                 $_SESSION['error_message'] = "login fallito";
             }
         }

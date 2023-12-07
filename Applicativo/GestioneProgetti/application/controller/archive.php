@@ -1,12 +1,12 @@
 <?php
 
-class Project
+class Archive
 {
     public function index()
     {
         require "application/views/components/header.php";
         require "application/views/components/navbar.php";
-        require "application/views/projectList/projectList.php";
-        //require "application/views/components/footer.php";
+        require_once 'application/views/archive/archive.php';
+        require "application/views/components/footer.php";
     }
 }
