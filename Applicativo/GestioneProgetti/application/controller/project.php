@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 use models\ProjectMapper;
 
+=======
+>>>>>>> b486ad6f7d9fd5dc008d30c37f9f0984c26b1e75
 class Project
 {
     public function index()
