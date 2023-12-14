@@ -11,7 +11,14 @@
             <td><?php echo $user->getEmail() ?></td>
             <td><?php echo $user->getPhoneNumber() ?></td>
             <td><?php echo $user->getRole() ?></td>
+            <td>
+                <div style="float: right">
+                    <a href="<?php echo URL;?>userModify" class="card-link btn btn-primary"><img src="<?php echo URL;?>application/libs/images/pen-solid.svg"></i></a>
+                    <a href="#" class="card-link btn btn-danger"><img src="<?php echo URL;?>application/libs/images/trash-can-solid.svg"></a>
+                </div>
+            </td>
         </tr>
     <?php endforeach;?>
     </tbody>
 </table>
+<a href="<?php echo URL;?>userAdd" class="card-link btn btn-success"><img src="<?php echo URL;?>application/libs/images/plus-solid.svg"></a>
