@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `Project`(
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255),
   `description` VARCHAR(255),
-  `startedAt` DATETIME,
+  `startedAt` DATE,
   `archived` TINYINT(1),
   `Contributor_id` INT NOT NULL,
   PRIMARY KEY(id)

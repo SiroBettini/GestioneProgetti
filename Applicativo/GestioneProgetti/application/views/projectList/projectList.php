@@ -5,10 +5,10 @@
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title"><?php echo $proj->getTitle()?></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><?php echo $proj->getTitle()?></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><?php echo $proj->getStart()?></h6>
             <p class="card-text"><?php echo $proj->getDesc()?></p>
             <div>
-            <a href="#" class="card-link btn btn-danger">Elimina</a>
+            <a href="<?php echo URL . "project/delete/" . $proj->getId()?>" class="card-link btn btn-danger">Elimina</a>
             <a href="#" class="card-link btn btn-primary">Modifica</a>
             </div>
         </div>

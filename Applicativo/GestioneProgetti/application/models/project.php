@@ -1,7 +1,5 @@
 <?php
 
-namespace models;
-
 class Project
 {
     private $id;
@@ -24,6 +22,14 @@ class Project
         $this->desc = $desc;
         $this->start = $start;
         $this->contributorId = $contributorId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -50,4 +56,11 @@ class Project
         return $this->start;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getContributorId()
+    {
+        return $this->contributorId;
+    }
 }
