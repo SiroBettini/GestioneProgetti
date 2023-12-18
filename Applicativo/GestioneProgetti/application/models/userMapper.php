@@ -1,8 +1,5 @@
 <?php
 
-namespace models;
-use PDO;
-
 require_once "user.php";
 
 class UserMapper
@@ -41,5 +38,10 @@ class UserMapper
             $users[] = $user;
         }
         return $users;
+    }
+
+    public function createUser($name, $surname, $email, $phoneNumber, $role, $password){
+        $queryAdd = "INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES('$name','$surname','$email','$phoneNumber','$role','$password');";
+        $this->conn->query($queryAdd);
     }
 }

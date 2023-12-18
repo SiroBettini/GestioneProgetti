@@ -1,6 +1,5 @@
 <?php
 
-use models\userMapper;
 class UserManager
 {
     public function index()

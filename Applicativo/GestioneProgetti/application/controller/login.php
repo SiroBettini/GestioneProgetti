@@ -1,6 +1,5 @@
 <?php
 
-use models\userMapper;
 class Login
 {
     private $um;
