@@ -11,7 +11,7 @@ class Projects
     public function index()
     {
         require_once "application/models/projectMapper.php";
-        $pjs = $this->pm->fetchProjects();
+        $pjs = $this->pm->fetchProjects(0);
 
         require "application/views/components/header.php";
         require "application/views/components/navbar.php";
@@ -20,6 +20,6 @@ class Projects
     }
     public function delete($index = null){
         $this->pm->deleteProject($index);
-        echo "eliminated";
+        header("location:" . URL . "projects");
     }
 }

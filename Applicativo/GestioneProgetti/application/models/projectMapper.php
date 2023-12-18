@@ -12,9 +12,11 @@ class ProjectMapper
         $this->conn = DBCONN;
     }
 
-    public function fetchProjects() : array{
-        $query = "SELECT * FROM project WHERE archived=0;";
-        $result = $this->conn->query($query);
+    public function fetchProjects($archived) : array{
+        $query = $this->conn->prepare("SELECT * FROM project WHERE archived=?;");
+        $query->bindParam(1,$archived,PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetchAll();
         $projects = array();
         foreach ($result as $prj) {
             // Convert DATE (MySQL type) into string
@@ -29,7 +31,7 @@ class ProjectMapper
         return $projects;
     }
     public function deleteProject($idx){
-        $query = $this->conn->prepare("DELETE FROM user WHERE id=?");
+        $query = $this->conn->prepare("DELETE FROM project WHERE id=?");
         $query->bindParam(1, $idx,PDO::PARAM_INT);
         $query->execute();
     }
