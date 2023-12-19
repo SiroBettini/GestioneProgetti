@@ -20,11 +20,8 @@ class Validator
     }
 
     function validNumbers($phoneNumber){
-        $numericPhoneNumber = preg_replace('/[^0-9]/', '', $phoneNumber);
 
-        $pattern = '/^\+\d{1,}$/';
-
-        if (preg_match($pattern, $numericPhoneNumber)) {
+        if (preg_match('/^\+?\d+$/', $phoneNumber)) {
             return true;
         }
         return false;

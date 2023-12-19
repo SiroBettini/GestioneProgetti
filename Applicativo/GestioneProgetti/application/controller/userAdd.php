@@ -20,12 +20,19 @@ class UserAdd
     }
 
     public function createUser(){
-        if(isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']) && isset($_POST['pnum']) && isset($_POST['role']) && isset($_POST['pass'])) {
-            if ($this->vali->validChars($_POST['name']) && $this->vali->validChars($_POST['surname'])){
+        if(isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']) && isset($_POST['pnum']) && isset($_POST['role']) && isset($_POST['pass']) && isset($_POST['reppass'])) {
+            if (
+                $this->vali->validChars($_POST['name']) && $this->vali->validChars($_POST['surname']) &&
+                $this->vali->validNumbers($_POST['email']) && $this->vali->validChars($_POST['pnum']) &&
+                strcasecmp($_POST['reppass'],$_POST['reppass'])
+            ){
                 $this->um->createUser($_POST['name'],$_POST['surname'],$_POST['email'],$_POST['pnum'],$_POST['role'],$_POST['pass']);
 
                 header("location:" . URL . "userManager");
+                echo "andatioooo";
             }
+        }else{
+            echo "pirla";
         }
     }
 }
