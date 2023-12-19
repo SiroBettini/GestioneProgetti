@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center">
     <h1 class="text-center m-4">Progetti attuali</h1>
-    <a class="btn btn-success h-25" href="<?php echo URL . "projects/new"?>"><span class="bi bi-plus-lg"></span></a>
+    <a class="btn btn-success" href="<?php echo URL . "projects/new"?>"><span class="bi bi-plus-lg"></span></a>
 </div>
 <div class="row row-cols-1 row-cols-md-4 g-4 w-100">
     <?php foreach ($pjs as $proj):?>
@@ -8,11 +8,11 @@
         <div class="card m-2">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $proj->getTitle()?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo $proj->getStart()?></h6>
+                <h6 class="card-subtitle mb-2 text-muted">Stato: <?php echo $proj->getState()?>, <?php echo $proj->getStart()?></h6>
                 <p class="card-text"><?php echo $proj->getDesc()?></p>
-                <div class="card-footer d-flex justify-content-around">
-                    <a href="#" onclick="showModal('<?php echo $proj->getTitle()?>','<?php echo $proj->getId()?>')" class="card-link btn btn-danger">Elimina</a>
-                    <a href="#" class="card-link btn btn-primary">Modifica</a>
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="#" onclick="showModal('<?php echo $proj->getTitle()?>','<?php echo $proj->getId()?>')" class="card-link btn btn-danger"><span class="bi bi-trash"></span></a>
+                    <a href="<?php echo URL?>projects/edit/<?php echo $proj->getId()?>" class="card-link btn btn-primary"><span class="bi bi-pencil-square"></span></a>
                 </div>
             </div>
         </div>
@@ -38,6 +38,7 @@
     </div>
 </div>
 
+<!-- Script for modal -->
 <script>
     function showModal(title,id) {
         var modalBody = document.getElementById('modalBodyContent');

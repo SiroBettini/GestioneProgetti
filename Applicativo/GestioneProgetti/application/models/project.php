@@ -7,6 +7,7 @@ class Project
     private $desc;
     private $start;
     private $contributorId;
+    private $state;
 
     /**
      * @param $id
@@ -14,14 +15,24 @@ class Project
      * @param $desc
      * @param $start
      * @param $contributorId
+     * @param $state
      */
-    public function __construct($id, $title, $desc, $start, $contributorId)
+    public function __construct($id, $title, $desc, $start, $contributorId,$state)
     {
         $this->id = $id;
         $this->title = $title;
         $this->desc = $desc;
         $this->start = $start;
         $this->contributorId = $contributorId;
+        $this->state = $state;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 
     /**

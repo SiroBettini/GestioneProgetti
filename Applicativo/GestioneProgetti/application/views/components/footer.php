@@ -1,3 +1,7 @@
-<div class="m-1 p-1 bg-dark text-white">@Copyright Siro Bettini && Alessandro Mureddu</div>
+<footer class="footer mt-auto py-3 bg-dark text-white">
+    <div class="container text-center">
+        <span class="">Progetto di Siro Bettini e Alessandro Mureddu</span>
+    </div>
+</footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
         <div class="card m-2">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $proj->getTitle()?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo $proj->getStart()?></h6>
+                <h6 class="card-subtitle mb-2 text-muted">Stato: <?php echo $proj->getState()?>, <?php echo $proj->getStart()?></h6>
                 <p class="card-text"><?php echo $proj->getDesc()?></p>
             </div>
         </div>
