@@ -10,8 +10,8 @@
                 <a class="nav-link" href="<?php echo URL;?>projects">Progetti</a>
                 <a class="nav-link" href="<?php echo URL;?>archive">Archivio</a>
                 <a class="nav-link" href="<?php echo URL;?>userManager">Utenti</a>
-                <span class="border-end border-dark-subtle"><a class="nav-link me-2" href="<?php echo URL;?>addProject">Crea</a></span>
-                <a class="nav-link me-3 ms-2" href="<?php echo URL;?>home">Login</a>
+<!--                <span class="border-end border-dark-subtle"><a class="nav-link me-2" href="--><?php //echo URL;?><!--addProject">Crea</a></span>-->
+                <a class="nav-link" href="<?php echo URL;?>home">Login</a>
             </div>
         </div>
     </div>

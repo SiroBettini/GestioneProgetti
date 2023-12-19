@@ -20,6 +20,7 @@
             <input type="password" name="pass" id="pass" class="form-control">
             <label for="user">Ripeti Password</label>
             <input type="password" name="reppass" id="reppass" class="form-control">
+            <label for="user">Ripetiaaaaaaaaaaaaaa </label>
             <br>
             <input type="submit" class="btn btn-primary" name="create">
         </form>

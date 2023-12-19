@@ -1,4 +1,7 @@
-<h1 class="text-center m-4">Progetti attuali</h1>
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-center m-4">Progetti attuali</h1>
+    <a class="btn btn-success h-25" href="<?php echo URL . "projects/new"?>"><span class="bi bi-plus-lg"></span></a>
+</div>
 <div class="row row-cols-1 row-cols-md-4 g-4 w-100">
     <?php foreach ($pjs as $proj):?>
     <div class="col">
