@@ -22,4 +22,19 @@ class Projects
         $this->pm->deleteProject($index);
         header("location:" . URL . "projects");
     }
+    public function new(){
+        require "application/views/components/header.php";
+        require "application/views/components/navbar.php";
+        require "application/views/addProject/addProject.php";
+    }
+
+    public function add(){
+        $title = $_POST[""];
+        $desc = $_POST[""];
+        $start = $_POST[""];
+        $archived = $_POST[""];
+        $contributor = $_POST[""];
+        $this->pm->addProject($title,$desc,$start,$archived,$contributor);
+        header("location:" . URL . "projects");
+    }
 }

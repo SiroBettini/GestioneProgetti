@@ -41,7 +41,10 @@ class UserMapper
     }
 
     public function createUser($name, $surname, $email, $phoneNumber, $role, $password){
-        $queryAdd = "INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES('$name','$surname','$email','$phoneNumber','$role','$password');";
-        $this->conn->query($queryAdd);
+        $query =$this->conn->prepare("INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES(?,?,?,?,?,?);");
+        $query->execute([$name,$surname,$email,$phoneNumber,$role,$password]);
+
+        //$queryAdd = "INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES('$name','$surname','$email','$phoneNumber','$role','$password');";
+        //$this->conn->query($queryAdd);
     }
 }
