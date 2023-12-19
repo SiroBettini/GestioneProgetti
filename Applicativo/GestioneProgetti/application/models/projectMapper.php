@@ -35,7 +35,7 @@ class ProjectMapper
         $query->bindParam(1, $idx,PDO::PARAM_INT);
         $query->execute();
     }
-    public function addProject(){
+    public function addProject($title,$desc,$start,$user){
 
     }
 }
