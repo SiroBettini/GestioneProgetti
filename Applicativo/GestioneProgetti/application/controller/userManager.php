@@ -15,4 +15,6 @@ class UserManager
         require "application/views/components/footer.php";
     }
 
+
+
 }

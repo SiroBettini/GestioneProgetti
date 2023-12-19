@@ -20,9 +20,11 @@
             <input type="password" name="pass" id="pass" class="form-control">
             <label for="user">Ripeti Password</label>
             <input type="password" name="reppass" id="reppass" class="form-control">
-            <label for="user">Ripetiaaaaaaaaaaaaaa </label>
             <br>
-            <input type="submit" class="btn btn-primary" name="create">
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-secondary" href="<?php echo URL ?>userManager">Annulla</a>
+                <input type="submit" class="btn btn-primary" name="create" value="Crea">
+            </div>
         </form>
     </div>
 

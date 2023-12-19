@@ -17,8 +17,9 @@ class UserMapper
     public function logIn($email, $pswd){
         //$pswd = password_hash($pswd, PASSWORD_BCRYPT);
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);;
-        $query = "select * from user where email='$email' AND password='$pswd'";
-        $result = $this->conn->query($query);
+        $query =$this->conn->prepare("select * from user where email=? AND password=?");
+        $query->execute([$email,$pswd]);
+        $result = $query;
         $users = $result->fetch(PDO::FETCH_ASSOC);
         print_r($users);
         $_SESSION["name"] = $users["name"];
@@ -43,8 +44,23 @@ class UserMapper
     public function createUser($name, $surname, $email, $phoneNumber, $role, $password){
         $query =$this->conn->prepare("INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES(?,?,?,?,?,?);");
         $query->execute([$name,$surname,$email,$phoneNumber,$role,$password]);
+    }
 
-        //$queryAdd = "INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES('$name','$surname','$email','$phoneNumber','$role','$password');";
-        //$this->conn->query($queryAdd);
+    public function takeSingleUser($id){
+        $query =$this->conn->prepare("select * from user where id=?");
+        $query->execute([$id]);
+        $result = $query->fetch();
+        $user = new User($result['id'],$result['name'],$result['surname'],$result['role'],$result['email'],$result['phoneNumber'],$result['password']);
+        return $user;
+    }
+
+    public function modifyUser($id,$name, $surname, $email, $phoneNumber, $role, $password){
+        $query =$this->conn->prepare("UPDATE user SET name = ?,surname = ?,email = ?, phoneNumber = ?, role = ?, password = ? WHERE id = $id");
+        $query->execute([$name,$surname,$email,$phoneNumber,$role,$password]);
+    }
+
+    public function deleteUser($id){
+        $query =$this->conn->prepare("DELETE FROM user WHERE id = ?");
+        $query->execute([$id]);
     }
 }
