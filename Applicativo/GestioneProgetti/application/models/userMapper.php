@@ -15,19 +15,21 @@ class UserMapper
     }
 
     public function logIn($email, $psd){
-        $psd = password_hash($psd, PASSWORD_BCRYPT);
-        echo "<script>console.log($psd)</script>";
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $query =$this->conn->prepare("select * from user where email=? AND password=?");
-        $query->execute([$email,$psd]);
+        $query =$this->conn->prepare("SELECT * FROM user WHERE email=?");
+        $query->execute([$email]);
         $result = $query;
         $users = $result->fetch(PDO::FETCH_ASSOC);
-        $_SESSION["name"] = $users["name"];
-        $_SESSION["surname"] = $users["surname"];
-        $_SESSION["role"] = $users["role"];
-        $_SESSION["email"] = $users["email"];
-        $_SESSION["phoneNumber"] = $users["phoneNumber"];
-        return $result->rowCount() > 0;
+        if(password_verify($psd, $users["password"])){
+            session_start();
+            $_SESSION["name"] = $users["name"];
+            $_SESSION["surname"] = $users["surname"];
+            $_SESSION["role"] = $users["role"];
+            $_SESSION["email"] = $users["email"];
+            $_SESSION["phoneNumber"] = $users["phoneNumber"];
+            return $result->rowCount() > 0;
+        }
+        return false;
     }
 
     public function fetch() : array{
