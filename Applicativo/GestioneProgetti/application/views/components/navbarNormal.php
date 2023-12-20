@@ -9,7 +9,6 @@
                 <a class="nav-link" href="<?php echo URL;?>home/homePage">Home</a>
                 <a class="nav-link" href="<?php echo URL;?>projects">Progetti</a>
                 <a class="nav-link" href="<?php echo URL;?>archive">Archivio</a>
-                <a class="nav-link" href="<?php echo URL;?>userManager">Utenti</a>
 <!--                <span class="border-end border-dark-subtle"><a class="nav-link me-2" href="--><?php //echo URL;?><!--addProject">Crea</a></span>-->
                 <a class="nav-link" href="--><?php echo URL;?>home/logOut">Login</a>
             </div>

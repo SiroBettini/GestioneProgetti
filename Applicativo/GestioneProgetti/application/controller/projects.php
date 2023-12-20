@@ -16,22 +16,44 @@ class Projects
         require_once "application/models/projectMapper.php";
         $pjs = $this->pm->fetchProjects(0);
 
-        require "application/views/components/header.php";
-        require "application/views/components/navbar.php";
-        require "application/views/projectList/projectList.php";
-        require "application/views/components/footer.php";
+        require_once 'application/controller/userControl.php';
+        $uc = new UserControl();
+        if ($uc->isSuperadmin()) {
+            require "application/views/components/header.php";
+            require "application/views/components/navbar.php";
+            require "application/views/projectList/projectList.php";
+            require "application/views/components/footer.php";
+        }else{
+            require "application/views/components/header.php";
+            require "application/views/components/navbarNormal.php";
+            require "application/views/projectList/projectList.php";
+            require "application/views/components/footer.php";
+        }
     }
     public function delete($index = null){
-        $this->pm->deleteProject($index);
-        header("location:" . URL . "projects");
+        require_once 'application/controller/userControl.php';
+        $uc = new UserControl();
+        if (!$uc->isContributor()) {
+            $this->pm->deleteProject($index);
+            header("location:" . URL . "projects");
+        }else{
+            header("location:" . URL . "projects");
+        }
     }
     public function new(){
-        $users = $this->um->fetch();
-        require "application/views/components/header.php";
-        require "application/views/projectList/addProject.php";
+        require_once 'application/controller/userControl.php';
+        $uc = new UserControl();
+        if (!$uc->isContributor()) {
+            $users = $this->um->fetch();
+            require "application/views/components/header.php";
+            require "application/views/projectList/addProject.php";
+        }else{
+            header("location:" . URL . "projects");
+        }
     }
 
     public function add(){
+
         if(!(empty($_POST["title"])) && !(empty($_POST["desc"]))){
             $title = $_POST["title"];
             $desc = $_POST["desc"];
@@ -46,15 +68,21 @@ class Projects
         header("location:" . URL . "projects");
     }
     public function edit($index){
-        $pjs = $this->pm->fetchProjects(0);
-        $currProj = null;
-        foreach ($pjs as $proj) {
-            if($proj->getId() == $index){
-                $currProj = $proj;
+        require_once 'application/controller/userControl.php';
+        $uc = new UserControl();
+        if (!$uc->isContributor()) {
+            $pjs = $this->pm->fetchProjects(0);
+            $currProj = null;
+            foreach ($pjs as $proj) {
+                if ($proj->getId() == $index) {
+                    $currProj = $proj;
+                }
             }
+            require "application/views/components/header.php";
+            require "application/views/projectList/editProject.php";
+        }else{
+            header("location:" . URL . "projects");
         }
-        require "application/views/components/header.php";
-        require "application/views/projectList/editProject.php";
     }
     public function update($index){
         if(!(empty($_POST["title"])) && !(empty($_POST["desc"]))){

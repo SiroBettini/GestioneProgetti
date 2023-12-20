@@ -22,6 +22,7 @@ class UserMapper
         $users = $result->fetch(PDO::FETCH_ASSOC);
         if(password_verify($psd, $users["password"])){
             session_start();
+            $_SESSION["UserId"] = $users['id'];
             $_SESSION["name"] = $users["name"];
             $_SESSION["surname"] = $users["surname"];
             $_SESSION["role"] = $users["role"];
@@ -30,6 +31,22 @@ class UserMapper
             return $result->rowCount() > 0;
         }
         return false;
+    }
+
+    public function logout()
+    {
+        session_start();
+        unset($_SESSION['UserId']);
+        unset($_SESSION["UserId"]);
+        unset($_SESSION["name"]);
+        unset($_SESSION["surname"]);
+        unset($_SESSION["role"]);
+        unset($_SESSION["email"]);
+        unset($_SESSION["phoneNumber"]);
+
+        session_destroy();
+        header("Location:" . URL);
+        exit();
     }
 
     public function fetch() : array{
