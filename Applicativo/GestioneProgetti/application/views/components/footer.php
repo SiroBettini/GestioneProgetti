@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 bg-dark text-white">
+<footer class="footer mt-auto py-3 bg-light text-dark">
     <div class="container text-center">
         <span class="">Progetto di Siro Bettini e Alessandro Mureddu</span>
     </div>

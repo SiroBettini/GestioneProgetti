@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="shadow p-5 rounded bg-dark text-white">
+    <h1 class="text-center me-5">Creazione utente</h1>
+    <div class="shadow p-5 rounded bg-dark bg-opacity-25 text-dark">
         <form method="POST" action="<?php echo URL ?>userAdd/createUser">
-            <h1>Creazione utente</h1>
             <label for="user">Nome</label>
             <input type="text" name="name" id="user" class="form-control">
             <label for="user">Cognome</label>
@@ -11,7 +11,7 @@
             <label for="user">Numero Telefono</label>
             <input type="text" name="pnum" id="user" class="form-control">
             <label for="dropdown">Ruolo:</label>
-            <select id="dropdown" name="role" class="form-control">
+            <select id="dropdown" name="role" class="form-select">
                 <option value="contributor">contributor</option>
                 <option value="admin">admin</option>
                 <option value="superadmin">superadmin</option>

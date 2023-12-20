@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <h1 class="text-center me-5">Modifica progetto</h1>
-    <div class="shadow p-5 rounded bg-dark text-white">
+    <div class="shadow p-5 rounded bg-dark bg-opacity-25 text-dark">
         <form method="POST" action="<?php echo URL ?>projects/update/<?php echo $currProj->getId()?>">
             <label for="title">Titolo</label>
             <input type="text" name="title" id="title" class="form-control" value="<?php echo $currProj->getTitle()?>">
