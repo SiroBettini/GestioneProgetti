@@ -8,20 +8,16 @@
             <br>
             <input type="submit" class="btn btn-primary" name="login">
         </form>
-    </div>
-
-    <?php
-    session_start();
-    if (isset($_SESSION['error_message'])){
-        ?>
-        <div>
             <?php
-            echo $_SESSION['error_message'];
-            unset($_SESSION['error_message']);
+                session_start();
+                if (isset($_SESSION['error_message'])):
             ?>
-        </div>
-        <?php
-    }
-    ?>
-
+            <div>
+                <?php
+                    echo $_SESSION['error_message'];
+                    unset($_SESSION['error_message']);
+                ?>
+            </div>
+            <?php endif;?>
+    </div>
 </div>

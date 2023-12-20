@@ -35,18 +35,8 @@ class UserMapper
 
     public function logout()
     {
-        session_start();
-        unset($_SESSION['UserId']);
-        unset($_SESSION["UserId"]);
-        unset($_SESSION["name"]);
-        unset($_SESSION["surname"]);
-        unset($_SESSION["role"]);
-        unset($_SESSION["email"]);
-        unset($_SESSION["phoneNumber"]);
 
-        session_destroy();
-        header("Location:" . URL);
-        exit();
+        //exit();
     }
 
     public function fetch() : array{

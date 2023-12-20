@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS `Project`(
   `description` VARCHAR(255),
   `startedAt` DATE,
   `archived` TINYINT(1),
+  `Creator_id` INT NOT NULL,
   `Contributor_id` INT NOT NULL,
   PRIMARY KEY(id)
 );
@@ -36,4 +37,6 @@ ALTER TABLE `ProjectState`
 
 ALTER TABLE `Project`
   ADD CONSTRAINT `Contributor_Progetti`
-    FOREIGN KEY (`Contributor_id`) REFERENCES `User` (id);
+    FOREIGN KEY (`Contributor_id`) REFERENCES `User` (id),
+  ADD CONSTRAINT `Creator_progetto`
+    FOREIGN KEY (`Creator_id`) REFERENCES `User` (id);

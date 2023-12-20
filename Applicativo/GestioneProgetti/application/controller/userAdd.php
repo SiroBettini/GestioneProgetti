@@ -34,6 +34,6 @@ class UserAdd
         }else{
             //echo '<script>alert("Inserire i dati!");</script>';
         }
-        header("location:" . URL . "userAdd");
+        header("location:" . URL . "userManager");
     }
 }

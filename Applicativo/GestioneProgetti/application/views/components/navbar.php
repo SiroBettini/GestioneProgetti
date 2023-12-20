@@ -9,9 +9,17 @@
                 <a class="nav-link" href="<?php echo URL;?>home/homePage">Home</a>
                 <a class="nav-link" href="<?php echo URL;?>projects">Progetti</a>
                 <a class="nav-link" href="<?php echo URL;?>archive">Archivio</a>
-                <a class="nav-link" href="<?php echo URL;?>userManager">Utenti</a>
-<!--                <span class="border-end border-dark-subtle"><a class="nav-link me-2" href="--><?php //echo URL;?><!--addProject">Crea</a></span>-->
-                <a class="nav-link" href="--><?php echo URL;?>home/logOut">Login</a>
+                <?php
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+                    require_once 'application/controller/userControl.php';
+                    $uc = new UserControl();
+                ?>
+                <?php if($uc->isSuperadmin()): ?>
+                    <a class="nav-link" href="<?php echo URL;?>userManager">Utenti</a>
+                <?php endif; ?>
+                <a class="nav-link" href="--><?php echo URL;?>home/logOut">Logout <span class="bi bi-box-arrow-in-left"></span></a>
             </div>
         </div>
     </div>

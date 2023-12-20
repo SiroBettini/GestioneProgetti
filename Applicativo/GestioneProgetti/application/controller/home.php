@@ -22,7 +22,7 @@ class Home
             require "application/views/components/footer.php";
         }else{
             require "application/views/components/header.php";
-            require "application/views/components/navbarNormal.php";
+            require "application/views/components/navbar.php";
             require_once 'application/views/home/home.php';
             require "application/views/components/footer.php";
         }
@@ -31,8 +31,17 @@ class Home
 
     public function logOut(){
         require_once 'application/models/userMapper';
-        $um = new UserMapper();
-        $um->logout();
+        session_start();
+        unset($_SESSION['UserId']);
+        unset($_SESSION["UserId"]);
+        unset($_SESSION["name"]);
+        unset($_SESSION["surname"]);
+        unset($_SESSION["role"]);
+        unset($_SESSION["email"]);
+        unset($_SESSION["phoneNumber"]);
+
+        header("location:" . URL . "home");
+        session_destroy();
     }
 
 

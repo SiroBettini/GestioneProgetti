@@ -43,13 +43,9 @@ class Projects
     public function new(){
         require_once 'application/controller/userControl.php';
         $uc = new UserControl();
-        if (!$uc->isContributor()) {
-            $users = $this->um->fetch();
-            require "application/views/components/header.php";
-            require "application/views/projectList/addProject.php";
-        }else{
-            header("location:" . URL . "projects");
-        }
+        $users = $this->um->fetch();
+        require "application/views/components/header.php";
+        require "application/views/projectList/addProject.php";
     }
 
     public function add(){
@@ -64,7 +60,7 @@ class Projects
             header("location:" . URL . "projects/new");
             return;
         }
-        $this->pm->addProject($title,$desc,$start,$contributor);
+        $this->pm->addProject($title,$desc,$start,$contributor,$creator);
         header("location:" . URL . "projects");
     }
     public function edit($index){

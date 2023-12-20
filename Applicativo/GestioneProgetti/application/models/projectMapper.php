@@ -40,8 +40,8 @@ class ProjectMapper
         $query->bindParam(1, $idx,PDO::PARAM_INT);
         $query->execute();
     }
-    public function addProject($title,$desc,$start,$user){
-        $query = $this->conn->prepare("INSERT INTO project (title,description,startedAt,archived,Contributor_id) VALUES(?,?,?,?,?)");
+    public function addProject($title,$desc,$start,$user,$creator){
+        $query = $this->conn->prepare("INSERT INTO project (title,description,startedAt,archived,Contributor_id,Creator_id) VALUES(?,?,?,?,?,?)");
         $query->bindParam(1, $title);
         $query->bindParam(2, $desc);
         $archived = 0;
@@ -50,6 +50,7 @@ class ProjectMapper
         $query->bindParam(3, $date);
         $query->bindParam(4, $archived,PDO::PARAM_INT);
         $query->bindParam(5, $user,PDO::PARAM_INT);
+        $query->bindParam(6, $creator,PDO::PARAM_INT);
         $query->execute();
 
         unset($query);
