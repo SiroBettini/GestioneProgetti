@@ -14,14 +14,14 @@ class UserMapper
         $this->conn = new PDO("mysql:host=localhost;dbname=gestione_progetti", "root","");
     }
 
-    public function logIn($email, $pswd){
-        //$pswd = password_hash($pswd, PASSWORD_BCRYPT);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);;
+    public function logIn($email, $psd){
+        $psd = password_hash($psd, PASSWORD_BCRYPT);
+        echo "<script>console.log($psd)</script>";
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         $query =$this->conn->prepare("select * from user where email=? AND password=?");
-        $query->execute([$email,$pswd]);
+        $query->execute([$email,$psd]);
         $result = $query;
         $users = $result->fetch(PDO::FETCH_ASSOC);
-        print_r($users);
         $_SESSION["name"] = $users["name"];
         $_SESSION["surname"] = $users["surname"];
         $_SESSION["role"] = $users["role"];
@@ -42,8 +42,9 @@ class UserMapper
     }
 
     public function createUser($name, $surname, $email, $phoneNumber, $role, $password){
+        $psd = password_hash($password, PASSWORD_BCRYPT);
         $query =$this->conn->prepare("INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES(?,?,?,?,?,?);");
-        $query->execute([$name,$surname,$email,$phoneNumber,$role,$password]);
+        $query->execute([$name,$surname,$email,$phoneNumber,$role,$psd]);
     }
 
     public function takeSingleUser($id){
@@ -55,8 +56,9 @@ class UserMapper
     }
 
     public function modifyUser($id,$name, $surname, $email, $phoneNumber, $role, $password){
+        $pswd = password_hash($password, PASSWORD_BCRYPT);
         $query =$this->conn->prepare("UPDATE user SET name = ?,surname = ?,email = ?, phoneNumber = ?, role = ?, password = ? WHERE id = $id");
-        $query->execute([$name,$surname,$email,$phoneNumber,$role,$password]);
+        $query->execute([$name,$surname,$email,$phoneNumber,$role,$pswd]);
     }
 
     public function deleteUser($id){
