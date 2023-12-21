@@ -30,10 +30,8 @@ class Home
     }
 
     public function logOut(){
-        require_once 'application/models/userMapper';
         session_start();
         unset($_SESSION['UserId']);
-        unset($_SESSION["UserId"]);
         unset($_SESSION["name"]);
         unset($_SESSION["surname"]);
         unset($_SESSION["role"]);

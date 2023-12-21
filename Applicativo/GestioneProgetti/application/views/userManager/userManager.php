@@ -25,7 +25,15 @@
                 <td>
                     <div style="float: right">
                         <a href="<?php echo URL;?>userModify/modifyUserPage/<?php echo $user->getId() ?>" class="card-link btn btn-primary"><span class="bi bi-pencil-square"></span></a>
-                        <a href="#" onclick="showModal('<?php echo $user->getName()?>','<?php echo $user->getSurname()?>','<?php echo $user->getId()?>')" class="card-link btn btn-danger"><span class="bi bi-trash"></span></a>
+                        <?php
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
+                        require_once "application/controller/userControl.php";
+                        $uc = new UserControl();
+                        if (!$uc->sameUser($user->getId())): ?>
+                            <a href="#" onclick="showModal('<?php echo $user->getName()?>','<?php echo $user->getSurname()?>','<?php echo $user->getId()?>')" class="card-link btn btn-danger"><span class="bi bi-trash"></span></a>
+                        <?php endif; ?>
                     </div>
                 </td>
             </tr>

@@ -19,7 +19,7 @@
                 <?php if($uc->isSuperadmin()): ?>
                     <a class="nav-link" href="<?php echo URL;?>userManager">Utenti</a>
                 <?php endif; ?>
-                <a class="nav-link" href="--><?php echo URL;?>home/logOut">Logout <span class="bi bi-box-arrow-in-left"></span></a>
+                <a class="nav-link" href="<?php echo URL;?>home/logOut">Logout <span class="bi bi-box-arrow-in-left"></span></a>
             </div>
         </div>
     </div>

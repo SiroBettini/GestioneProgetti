@@ -25,4 +25,16 @@ class UserControl
             return false;
         }
     }
+
+    public function sameUser($id){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if ($_SESSION['UserId'] == $id) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
