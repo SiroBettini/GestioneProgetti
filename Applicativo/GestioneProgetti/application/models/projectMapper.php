@@ -18,6 +18,9 @@ class ProjectMapper
         $query->execute();
         $result = $query->fetchAll();
         $projects = array();
+        require_once "application/controller/userControl.php";
+        $uc = new UserControl();
+
         foreach ($result as $prj) {
             unset($query);
             $query = $this->conn->prepare("SELECT state,updatedAt FROM projectstate WHERE Project_id=?;");
@@ -28,6 +31,12 @@ class ProjectMapper
             $date = new DateTime($result[0]['updatedAt']);
             $date = $date->format('Y-m-d');
             // Create a new instance of Project
+            // Create a new instance of Project
+            if($uc->isContributor()){
+                if(!($uc->sameUser($prj['Contributor_id']))){
+                    continue;
+                }
+            }
             $project = new Project($prj['id'], $prj['title'], $prj['description'], $date, $prj['Contributor_id'],$result[0]['state']);
             // Add in the projects array
             $projects[] = $project;
