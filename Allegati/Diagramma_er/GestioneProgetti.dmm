@@ -92,6 +92,27 @@
 					"estimatedSize": ""
 				},
 				{
+					"id": "6b9d50ad-ea45-47f9-b228-ecb6f6398c50",
+					"name": "archived",
+					"datatype": "TINYINT",
+					"param": "1",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
+				},
+				{
 					"id": "7c82a3f1-5737-4aac-b2bc-48f7c9ac43bd",
 					"name": "Contributor_id",
 					"datatype": "INT",
@@ -112,6 +133,27 @@
 					"enum": "",
 					"estimatedSize": "",
 					"fk": true
+				},
+				{
+					"id": "4f1d4892-2bfe-4d07-a29d-8841b36c22db",
+					"name": "Creator_id",
+					"datatype": "INT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
 				}
 			],
 			"relations": [
@@ -423,6 +465,27 @@
 					"unsigned": false,
 					"enum": "",
 					"estimatedSize": ""
+				},
+				{
+					"id": "ef05e8b4-0963-46a8-a5dc-01a93ba362c5",
+					"name": "disabled",
+					"datatype": "TINYINT",
+					"param": "1",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
 				}
 			],
 			"relations": [
@@ -562,7 +625,7 @@
 			"includeSchema": "always",
 			"quotation": "if_needed"
 		},
-		"lastSaved": "Thu Nov 23 2023 11:08:37 GMT+0100 (Ora standard dell’Europa centrale)"
+		"lastSaved": "23/11/2023"
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -580,9 +643,9 @@
 			"diagramItems": {
 				"5a05ae40-f241-4bdf-8f8d-457996920311": {
 					"referencedItemId": "5a05ae40-f241-4bdf-8f8d-457996920311",
-					"x": 201,
-					"y": 316,
-					"gHeight": 117,
+					"x": 200,
+					"y": 281,
+					"gHeight": 153,
 					"gWidth": 217,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -592,8 +655,8 @@
 				},
 				"6f535a59-ddb0-4af0-a93f-acb0c1583cbe": {
 					"referencedItemId": "6f535a59-ddb0-4af0-a93f-acb0c1583cbe",
-					"x": 533,
-					"y": 316,
+					"x": 537,
+					"y": 280,
 					"gHeight": 99,
 					"gWidth": 213,
 					"color": "#ffffff",
@@ -606,7 +669,7 @@
 					"referencedItemId": "5f0bb99c-ca86-4fff-bbe6-0ef9a7da85ee",
 					"x": 202,
 					"y": 465,
-					"gHeight": 153,
+					"gHeight": 171,
 					"gWidth": 252,
 					"color": "#ffffff",
 					"background": "#03a9f4",
