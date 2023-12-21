@@ -28,15 +28,18 @@ CREATE TABLE IF NOT EXISTS `User`(
   `phoneNumber` VARCHAR(22),
   `role` ENUM('contributor','admin','superadmin'),
   `password` CHAR(64),
+  `disabled` TINYINT(1) DEFAULT 0,
   PRIMARY KEY(id)
 );
 
 ALTER TABLE `ProjectState`
   ADD CONSTRAINT `Progetti_ProjectState`
-    FOREIGN KEY (`Project_id`) REFERENCES `Project` (id);
+    FOREIGN KEY (`Project_id`) REFERENCES `Project`(id);
 
 ALTER TABLE `Project`
   ADD CONSTRAINT `Contributor_Progetti`
-    FOREIGN KEY (`Contributor_id`) REFERENCES `User` (id),
+    FOREIGN KEY (`Contributor_id`) REFERENCES `User`(id),
   ADD CONSTRAINT `Creator_progetto`
-    FOREIGN KEY (`Creator_id`) REFERENCES `User` (id);
+    FOREIGN KEY (`Creator_id`) REFERENCES `User`(id);
+    
+INSERT INTO user (name,surname,email,phoneNumber,role,password,disabled) VALUES("root","root","root@gmail.com","+41761111111","superadmin","$2y$10$Qjt428VOjY57np/r.QsTy.N0mH4nm92v1PzMZjWlnf6imBaaa1jBy",0);

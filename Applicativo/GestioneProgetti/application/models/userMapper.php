@@ -16,7 +16,7 @@ class UserMapper
 
     public function logIn($email, $psd){
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $query =$this->conn->prepare("SELECT * FROM user WHERE email=?");
+        $query =$this->conn->prepare("SELECT * FROM user WHERE email=? AND disabled=0");
         $query->execute([$email]);
         $result = $query;
         $users = $result->fetch(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@ class UserMapper
     }
 
     public function fetch() : array{
-        $query = "SELECT * FROM user";
+        $query = "SELECT * FROM user WHERE disabled=0";
         $result = $this->conn->query($query);
         $users = array();
         foreach($result as $s){
@@ -52,12 +52,12 @@ class UserMapper
 
     public function createUser($name, $surname, $email, $phoneNumber, $role, $password){
         $psd = password_hash($password, PASSWORD_BCRYPT);
-        $query =$this->conn->prepare("INSERT INTO user (name,surname,email,phoneNumber,role,password) VALUES(?,?,?,?,?,?);");
-        $query->execute([$name,$surname,$email,$phoneNumber,$role,$psd]);
+        $query =$this->conn->prepare("INSERT INTO user (name,surname,email,phoneNumber,role,password,disabled) VALUES(?,?,?,?,?,?,?);");
+        $query->execute([$name,$surname,$email,$phoneNumber,$role,$psd,0]);
     }
 
     public function takeSingleUser($id){
-        $query =$this->conn->prepare("select * from user where id=?");
+        $query =$this->conn->prepare("SELECT * FROM user WHERE id=?");
         $query->execute([$id]);
         $result = $query->fetch();
         $user = new User($result['id'],$result['name'],$result['surname'],$result['role'],$result['email'],$result['phoneNumber'],$result['password']);
@@ -71,7 +71,7 @@ class UserMapper
     }
 
     public function deleteUser($id){
-        $query =$this->conn->prepare("DELETE FROM user WHERE id = ?");
+        $query =$this->conn->prepare("UPDATE user SET disabled=1 WHERE id = ?");
         $query->execute([$id]);
     }
 }

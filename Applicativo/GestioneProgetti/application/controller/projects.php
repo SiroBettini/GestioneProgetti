@@ -60,6 +60,7 @@ class Projects
             header("location:" . URL . "projects/new");
             return;
         }
+        $creator = 1;
         $this->pm->addProject($title,$desc,$start,$contributor,$creator);
         header("location:" . URL . "projects");
     }
